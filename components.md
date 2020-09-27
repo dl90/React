@@ -125,6 +125,7 @@ const div = /*#__PURE__*/React.createElement(
 > *Note:*
 >
 > Capitalized types indicate JSX tag is referring to a React component.
+>
 > These tags get compiled into a direct reference to the named variable and must be in scope.
 
 ```jsx
@@ -244,7 +245,9 @@ function NumberDescriber(props) {
 
 * If you pass no value for a prop, it defaults to true
 
-  *Note:* this can be confused with the ES6 object shorthand ( {foo} => {foo: foo} ) so avoid if possible
+  > *Note:*
+  >
+  > this can be confused with the ES6 object shorthand ( {foo} => {foo: foo} ) so avoid if possible
 
 ```jsx
 <MyTextBox autocomplete />

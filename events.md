@@ -159,7 +159,7 @@ this.setState((state, props) => ({ counter: state.counter + props.increment }))
 
 **hooks** allow you to use React features
 
-**useState** is a hook that allows the use *state* without building/converting components as a class
+**useState** is a hook that allows the use of *state* without building/converting components as a class
 
 > *Note:*
 >
@@ -167,7 +167,7 @@ this.setState((state, props) => ({ counter: state.counter + props.increment }))
 >
 > Hooks don't work in React class components
 >
-> only change *state* with this.setState or the setState reference from useState()
+> only change *state* with this.setState or the setState func reference from useState()
 
 ### checklist for using state
 

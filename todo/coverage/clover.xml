@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1601177883771" clover="3.2.0">
+  <project timestamp="1601177883771" name="All files">
+    <metrics statements="29" coveredstatements="24" conditionals="6" coveredconditionals="4" methods="12" coveredmethods="11" elements="47" coveredelements="39" complexity="0" loc="29" ncloc="29" packages="1" files="3" classes="3"/>
+    <file name="FilterButton.jsx" path="/Users/don/GitHub/React/todo/src/components/FilterButton.jsx">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <line num="4" count="7" type="stmt"/>
+      <line num="6" count="7" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+    </file>
+    <file name="Form.jsx" path="/Users/don/GitHub/React/todo/src/components/Form.jsx">
+      <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+      <line num="4" count="5" type="stmt"/>
+      <line num="5" count="5" type="stmt"/>
+      <line num="6" count="5" type="stmt"/>
+      <line num="7" count="5" type="stmt"/>
+      <line num="8" count="2" type="stmt"/>
+      <line num="9" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="15" count="5" type="stmt"/>
+    </file>
+    <file name="Todo.jsx" path="/Users/don/GitHub/React/todo/src/components/Todo.jsx">
+      <metrics statements="17" coveredstatements="12" conditionals="4" coveredconditionals="2" methods="7" coveredmethods="6"/>
+      <line num="4" count="11" type="stmt"/>
+      <line num="5" count="11" type="stmt"/>
+      <line num="6" count="11" type="stmt"/>
+      <line num="8" count="11" type="stmt"/>
+      <line num="9" count="11" type="stmt"/>
+      <line num="10" count="0" type="stmt"/>
+      <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="12" count="0" type="stmt"/>
+      <line num="13" count="0" type="stmt"/>
+      <line num="14" count="0" type="stmt"/>
+      <line num="19" count="11" type="stmt"/>
+      <line num="41" count="1" type="stmt"/>
+      <line num="59" count="11" type="stmt"/>
+      <line num="66" count="2" type="stmt"/>
+      <line num="76" count="1" type="stmt"/>
+      <line num="85" count="1" type="stmt"/>
+      <line num="95" count="11" type="cond" truecount="2" falsecount="0"/>
+    </file>
+  </project>
+</coverage>

@@ -11,7 +11,7 @@ function FilterButton (props) {
       onClick={() => setFilter(name)}
     >
       <span className='visually-hidden'>Show </span>
-      <span>{name}</span>
+      <span data-testid='filterButtonName'>{name}</span>
       <span className='visually-hidden'> tasks</span>
     </button>
   )

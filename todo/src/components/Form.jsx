@@ -1,18 +1,19 @@
 import React, { useState } from 'react'
 
 function Form (props) {
+  const { onSubmit } = props
   const [name, setName] = useState('')
   const handelChange = (e) => setName(e.target.value.trim())
   const handleSubmit = (e) => {
     e.preventDefault()
     if (name.length) {
-      props.onSubmit(name)
+      onSubmit(name)
       setName('')
     }
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} data-testid='form'>
       <h2 className='label-wrapper'>
         <label htmlFor='new-todo-input' className='label__lg'>
           What needs to be done?

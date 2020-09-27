@@ -1,14 +1,11 @@
 import React, { useState } from 'react'
 
 export default function Todo (props) {
-  const { id, completed, name, onCompleted, onDelete, onEdit } = props
+  const { id, completed, name, onComplete, onDelete, onEdit } = props
   const [isEditing, setEditing] = useState(false)
   const [newName, setNewName] = useState('')
 
-  const handleChange = (e) => {
-    setNewName(e.target.value)
-  }
-
+  const handleChange = (e) => setNewName(e.target.value)
   const handleSubmit = (e) => {
     e.preventDefault()
     if (newName.trim().length) {
@@ -42,6 +39,7 @@ export default function Todo (props) {
           type='button'
           className='btn todo-cancel'
           onClick={() => { setEditing(false); setNewName('') }}
+          data-testid='todoEditCancel'
         >Cancel
           <span className='visually-hidden'> renaming {name}</span>
         </button>
@@ -49,12 +47,14 @@ export default function Todo (props) {
         <button
           type='submit'
           className='btn btn__primary todo-edit'
+          data-testid='todoEditSubmit'
         >Save
           <span className='visually-hidden'> new name for {name}</span>
         </button>
       </div>
     </form>
   )
+
   const viewTemplate = (
     <div className='stack-small'>
       <div className='c-cb'>
@@ -63,7 +63,7 @@ export default function Todo (props) {
           id={id}
           type='checkbox'
           defaultChecked={completed}
-          onChange={() => onCompleted(id)}
+          onChange={() => onComplete(id)}
         />
         <label className='todo-label' htmlFor={id}>{name}</label>
 
@@ -74,16 +74,18 @@ export default function Todo (props) {
           type='button'
           className='btn'
           onClick={() => setEditing(true)}
+          data-testid='todoStartEdit'
         >Edit
-          <span className='visually-hidden'> {name}</span>
+          <span className='visually-hidden'>{name}</span>
         </button>
 
         <button
           type='button'
           className='btn btn__danger'
           onClick={() => onDelete(id)}
+          data-testid='todoDelete'
         >Delete
-          <span className='visually-hidden'> {name}</span>
+          <span className='visually-hidden'>{name}</span>
         </button>
 
       </div>
