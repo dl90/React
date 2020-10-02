@@ -40,7 +40,7 @@ describe('Todo', () => {
     expect(onDeleteCB).toHaveBeenCalled()
   })
 
-  test('edit', async () => {
+  test('edit', () => {
     const { getByTestId, getByRole } = render(<Todo {...props} />, container)
     const startEditButton = getByTestId('todoStartEdit')
     fireEvent.click(startEditButton)
@@ -54,7 +54,8 @@ describe('Todo', () => {
     expect(textbox.value).toBe(val)
 
     fireEvent.click(cancelButton)
-    console.log(textbox.value)
+    // console.log(textbox.value)
+    // expect(textbox.value).toBe('')
     fireEvent.click(startEditButton)
 
     fireEvent.click(editSubmit)

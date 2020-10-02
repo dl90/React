@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { nanoid } from 'nanoid'
 import Form from './components/Form'
 import FilterButton from './components/FilterButton'
 import Todo from './components/Todo'
+import Button from './components/Button'
 
 /*
   defining these constants outside our App() avoids reevaluating every time <App /> re-renders
@@ -19,33 +20,35 @@ function App (props) {
   const [tasks, setTasks] = useState(props.tasks)
   const [filter, setFilter] = useState('All')
 
+  useEffect(() => {
+    const localTasks = JSON.parse(window.localStorage.getItem('tasks'))
+    if (localTasks) setTasks(localTasks)
+  }, [])
+  useEffect(() => window.localStorage.setItem('tasks', JSON.stringify(tasks)), [tasks])
+
   /*
     callback prop: function passed as a prop to grab/process values from sub-components
-    naming convention for the prop: <onSomething>, function: <whatItDoes>
+    naming convention for the prop: <onSomething>, function <whatItDoes>
   */
 
-  // updates tasks (state) after toggle
+  // updates tasks after toggle
   const toggleTaskCompleted = (id) => {
-    const updatedTasks = tasks.map(task => {
+    setTasks(tasks.map(task => {
       if (id === task.id) return { ...task, completed: !task.completed }
       return task
-    })
-    setTasks(updatedTasks)
-  }
-
-  // updates after delete
-  const deleteTask = (id) => {
-    const remainingTasks = tasks.filter(task => id !== task.id)
-    setTasks(remainingTasks)
+    }))
   }
 
   // updates existing after edit
   const editTask = (id, newName) => {
-    const editedTaskList = tasks.map(task => {
+    setTasks(tasks.map(task => {
       if (id === task.id) return { ...task, name: newName }
       return task
-    })
-    setTasks(editedTaskList)
+    }))
+  }
+
+  const deleteTask = (id) => {
+    setTasks(tasks.filter(task => id !== task.id))
   }
 
   // builds Todo based on filter
@@ -73,7 +76,6 @@ function App (props) {
     />
   ))
 
-  // adds new task to task arr
   const addTask = (name) => {
     setTasks([...tasks, {
       id: `todo-${nanoid()}`,
@@ -82,19 +84,26 @@ function App (props) {
     }])
   }
 
+  const clearTasks = () => {
+    window.localStorage.clear()
+    setTasks([])
+  }
+
   const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task'
   const headingText = `${taskList.length} ${tasksNoun} remaining`
 
   return (
     <div className='todoapp stack-large'>
-      <h1><span role='img' aria-label='tic-toc'>💣💣💥</span></h1>
+      <h1><span role='img' aria-label='tic-toc'>💣💥🏁</span></h1>
       <Form onSubmit={addTask} />
+      <div className='btn-group'>
+        <Button name='Clear All' onClick={clearTasks} className='btn btn__danger' />
+      </div>
       <div className='filters btn-group stack-exception'>
         {filterList}
       </div>
       <h2 id='list-heading'>{headingText}</h2>
       <ul
-        // role='list'
         className='todo-list stack-large stack-exception'
         aria-labelledby='list-heading'
       >
