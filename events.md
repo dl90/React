@@ -45,13 +45,10 @@ function ActionLink() {
 
 ## State
 
-Components defined as a class commonly call its method to handel events
-
-setState method inherited from React.Components
-
-state is private and encapsulated by the component
-
-by using state, React will preserved values in function components between re-renders
+* Components defined as a class commonly call its method to handel events
+* setState method inherited from React.Components
+* state is private and encapsulated by the component
+* by using state, React will preserved values in function components between re-renders
 
 ```jsx
 class Toggle extends React.Component {
@@ -172,9 +169,7 @@ this.setState((state, props) => ({ counter: state.counter + props.increment }))
 ### checklist for using state
 
 * Is it passed in from a parent via props? If so, it probably isn’t state.
-
 * Does it remain unchanged over time? If so, it probably isn’t state.
-
 * Can you compute it based on any other state or props in your component? If so, it isn’t state.
 
 ```jsx
@@ -209,11 +204,9 @@ function Example() {
 
 ## Lifecycle
 
-free up resources taken by the components when they are destroyed
-
-“mounting” is when the component is rendered to the DOM for the first time
-
-“unmounting” is when the component is removed from the DOM
+* free up resources taken by the components when they are destroyed
+* “mounting” is when the component is rendered to the DOM for the first time
+* “unmounting” is when the component is removed from the DOM
 
 ```jsx
 class Clock extends React.Component {

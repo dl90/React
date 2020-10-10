@@ -8,11 +8,9 @@ React uses one way data flow (parent component to sub-component)
 
 ## composing components
 
-a component should ideally only do one thing
-
-complex components should be decomposed into smaller sub-components
-
-Welcome component can be reused to compose more complex components
+* a component should ideally only do one thing
+* complex components should be decomposed into smaller sub-components
+* the Welcome component can be reused to compose more complex components
 
 ```jsx
 const Welcome = (props) => {
@@ -42,7 +40,7 @@ complex components should be broken down (to a certain extent) if it benefits re
 
 ```jsx
 /* original */
-function Comment(props) {
+function Comment (props) {
   return (
     <div className="Comment">
       <div className="UserInfo">
@@ -67,7 +65,7 @@ function Comment(props) {
 
 ```jsx
 /* third component: takes <props.user> and renders data */
-function Avatar(props) {
+function Avatar (props) {
   const { avatarUrl, name } = props.user
   return (
     <img className="Avatar"
@@ -78,7 +76,7 @@ function Avatar(props) {
 }
 
 /* secondary component: takes <props.user> passes to Avatar as <user> attribute */
-function UserInfo(props) {
+function UserInfo (props) {
   const { name } = props.user
   return (
     <div className="UserInfo">
@@ -91,7 +89,7 @@ function UserInfo(props) {
 }
 
 /* main component: passes <props.author> to UserInfo as <user> attribute */
-function Comment(props) {
+function Comment (props) {
   const { date, text, author} = props
   return (
     <div className="Comment">
@@ -133,7 +131,7 @@ const div = /*#__PURE__*/React.createElement(
 import React from 'react'
 import CustomButton from './CustomButton'
 
-function WarningButton() {
+function WarningButton () {
   // return React.createElement(CustomButton, {color: 'red'}, null)
   return <CustomButton color="red" />
 }
@@ -151,7 +149,7 @@ const MyComponents = {
   }
 }
 
-function BlueDatePicker() {
+function BlueDatePicker () {
   // OK to use specific component from a object containing these components
   return <MyComponents.DatePicker color="blue" />
 }
@@ -167,7 +165,7 @@ const components = {
   video: VideoStory
 };
 
-function Story(props) {
+function Story (props) {
   // JSX type can't be an expression
   // return <components[props.storyType] story={props.story} />;
 
@@ -183,7 +181,7 @@ function Story(props) {
 
 ```jsx
 class Hello extends React.Component {
-  render() { return <div>Hello {this.props.toWhat}</div> }
+  render () { return <div>Hello {this.props.toWhat}</div> }
 }
 
 ReactDOM.render(
@@ -260,11 +258,11 @@ function NumberDescriber(props) {
   *Note:* easy to pass unnecessary props to components or invalid HTML attributes, use sparingly
 
 ```jsx
-function App1() {
+function App1 () {
   return <Greeting firstName="Ben" lastName="Hector" />
 }
 
-function App2() {
+function App2 () {
   const props = {firstName: 'Ben', lastName: 'Hector'}
   return <Greeting {...props} />
 }
@@ -312,7 +310,7 @@ content between tags is passed as props.children
 * array of elements
 
 ```jsx
-function Render() {
+function Render () {
   // No need to wrap list items in an extra element!
   return [
     // Don't forget the keys :)
@@ -322,7 +320,7 @@ function Render() {
   ]
 }
 
-function Container() {
+function Container () {
   return (
     <div>
       <ul>
@@ -337,11 +335,11 @@ function Container() {
 
 ```jsx
 // text content of each Item component comes from the message attribute (message={message})
-function Item(props) {
+function Item (props) {
   return <li>{props.message}</li>;
 }
 
-function TodoList() {
+function TodoList () {
   const todos = ['finish doc', 'submit pr', 'nag dan to review'];
   return (
     <ul>
@@ -350,7 +348,7 @@ function TodoList() {
   );
 }
 
-function Hello(props) {
+function Hello (props) {
   return <div>Hello {props.addressee}!</div>;
 }
 ```

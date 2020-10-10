@@ -1,44 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1601177883771" clover="3.2.0">
-  <project timestamp="1601177883771" name="All files">
-    <metrics statements="29" coveredstatements="24" conditionals="6" coveredconditionals="4" methods="12" coveredmethods="11" elements="47" coveredelements="39" complexity="0" loc="29" ncloc="29" packages="1" files="3" classes="3"/>
-    <file name="FilterButton.jsx" path="/Users/don/GitHub/React/todo/src/components/FilterButton.jsx">
-      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-      <line num="4" count="7" type="stmt"/>
-      <line num="6" count="7" type="stmt"/>
-      <line num="11" count="1" type="stmt"/>
-    </file>
-    <file name="Form.jsx" path="/Users/don/GitHub/React/todo/src/components/Form.jsx">
-      <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
-      <line num="4" count="5" type="stmt"/>
-      <line num="5" count="5" type="stmt"/>
-      <line num="6" count="5" type="stmt"/>
-      <line num="7" count="5" type="stmt"/>
-      <line num="8" count="2" type="stmt"/>
-      <line num="9" count="2" type="cond" truecount="2" falsecount="0"/>
-      <line num="10" count="1" type="stmt"/>
-      <line num="11" count="1" type="stmt"/>
-      <line num="15" count="5" type="stmt"/>
-    </file>
-    <file name="Todo.jsx" path="/Users/don/GitHub/React/todo/src/components/Todo.jsx">
-      <metrics statements="17" coveredstatements="12" conditionals="4" coveredconditionals="2" methods="7" coveredmethods="6"/>
-      <line num="4" count="11" type="stmt"/>
-      <line num="5" count="11" type="stmt"/>
-      <line num="6" count="11" type="stmt"/>
-      <line num="8" count="11" type="stmt"/>
-      <line num="9" count="11" type="stmt"/>
-      <line num="10" count="0" type="stmt"/>
-      <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
-      <line num="12" count="0" type="stmt"/>
-      <line num="13" count="0" type="stmt"/>
-      <line num="14" count="0" type="stmt"/>
-      <line num="19" count="11" type="stmt"/>
-      <line num="41" count="1" type="stmt"/>
-      <line num="59" count="11" type="stmt"/>
-      <line num="66" count="2" type="stmt"/>
-      <line num="76" count="1" type="stmt"/>
-      <line num="85" count="1" type="stmt"/>
-      <line num="95" count="11" type="cond" truecount="2" falsecount="0"/>
-    </file>
+<coverage generated="1602126846336" clover="3.2.0">
+  <project timestamp="1602126846336" name="All files">
+    <metrics statements="42" coveredstatements="22" conditionals="8" coveredconditionals="1" methods="21" coveredmethods="4" elements="71" coveredelements="27" complexity="0" loc="42" ncloc="42" packages="3" files="6" classes="6"/>
+    <package name="src">
+      <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="App.jsx" path="/Users/don/GitHub/React/todo/src/App.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+      </file>
+      <file name="index.jsx" path="/Users/don/GitHub/React/todo/src/index.jsx">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.layout">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="Navbar.jsx" path="/Users/don/GitHub/React/todo/src/layout/Navbar.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.pages">
+      <metrics statements="37" coveredstatements="18" conditionals="8" coveredconditionals="1" methods="19" coveredmethods="2"/>
+      <file name="About.jsx" path="/Users/don/GitHub/React/todo/src/pages/About.jsx">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+      <file name="Error.jsx" path="/Users/don/GitHub/React/todo/src/pages/Error.jsx">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+      <file name="Home.jsx" path="/Users/don/GitHub/React/todo/src/pages/Home.jsx">
+        <metrics statements="35" coveredstatements="18" conditionals="8" coveredconditionals="1" methods="17" coveredmethods="2"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="50" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="55" count="2" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="60" count="2" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="75" count="2" type="stmt"/>
+        <line num="76" count="6" type="stmt"/>
+        <line num="84" count="2" type="stmt"/>
+        <line num="85" count="0" type="stmt"/>
+        <line num="92" count="2" type="stmt"/>
+        <line num="93" count="0" type="stmt"/>
+        <line num="94" count="0" type="stmt"/>
+        <line num="97" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="98" count="2" type="stmt"/>
+        <line num="100" count="2" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>

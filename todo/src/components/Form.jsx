@@ -28,7 +28,7 @@ function Form (props) {
         value={name}
         onChange={handelChange}
       />
-      <button type='submit' className='btn btn__primary btn__lg'>
+      <button type='submit' className='btn btn__lg'>
         Add
       </button>
     </form>

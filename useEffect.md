@@ -1,10 +1,8 @@
 # useEffect
 
-used on components to trigger an action after theres been a change
-
-usually placed in a component to access the components state, to trigger an action based on state data
-
-by default useEffect hook is called after every render
+* used on components to trigger an action after theres been a change
+* usually placed in a component to access the components state, to trigger an action based on state data
+* by default useEffect hook is called after every render
 
 ```jsx
 // Hooks must be called on the top level of our components.

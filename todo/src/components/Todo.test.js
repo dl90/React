@@ -1,3 +1,5 @@
+/* global describe test expect jest beforeEach afterEach */
+
 import React from 'react'
 import { fireEvent, render, cleanup } from '@testing-library/react'
 import Todo from './Todo'

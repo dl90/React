@@ -1,8 +1,7 @@
 # Testing
 
-code becomes more complex as project grows
-
-writing tests before coding ensures tests are written and it may be difficult to write tests after writing code
+* code becomes more complex as project grows
+* writing tests before coding ensures tests are written and it may be difficult to write tests after writing code
 
 ## Jest
 
