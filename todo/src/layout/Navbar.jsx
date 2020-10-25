@@ -5,6 +5,7 @@ import { AppThemeContext } from '../styles/AppThemeProvider'
 
 const NavContainer = styled.div`
   display: flex;
+  width: 100%;
 `
 
 const ThemeToggle = styled.button`
@@ -16,14 +17,14 @@ const ThemeToggle = styled.button`
 `
 
 export default function Navbar (props) {
-  const { home, about } = props
+  const { home, about, api } = props
   const { toggleTheme, themeMode } = useContext(AppThemeContext)
   const handleThemeChange = () => { toggleTheme() }
-  console.log(themeMode)
   return (
     <NavContainer>
       <Link to={home}>Home</Link>
       <Link to={about}>About</Link>
+      <Link to={api}>Api</Link>
       <ThemeToggle type='button' onClick={handleThemeChange}>{themeMode}</ThemeToggle>
     </NavContainer>
   )

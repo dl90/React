@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 export default function Todo (props) {
-  const { id, completed, name, onComplete, onDelete, onEdit } = props
+  const { id, status, name, onToggleStatus, onDelete, onEdit } = props
   const [isEditing, setEditing] = useState(false)
   const [newName, setNewName] = useState('')
 
@@ -14,6 +14,17 @@ export default function Todo (props) {
       setEditing(false)
     }
   }
+
+  // const statusState = (status) => {
+  //   switch (status) {
+  //     case 0:
+  //       return 'Not Started'
+  //     case 1:
+  //       return 'Started'
+  //     case 2:
+  //       return 'Completed'
+  //   }
+  // }
 
   const editingTemplate = (
     <form
@@ -59,14 +70,23 @@ export default function Todo (props) {
     <div className='stack-small'>
       <div className='c-cb'>
 
-        <input
-          id={id}
-          type='checkbox'
-          defaultChecked={completed}
-          onChange={() => onComplete(id)}
-        />
-        <label className='todo-label' htmlFor={id}>{name}</label>
+        <div className='status-container'>
+          {/* <label htmlFor='status'>{statusState(status)}</label> */}
+          <select name='status' id={id} onChange={(e) => onToggleStatus(id, e.target.value)} value={status}>
+            <option value='0'>Not started</option>
+            <option value='1'>Started</option>
+            <option value='2'>Completed</option>
+          </select>
 
+          {/* <input type='radio' name='NotStarted' onClick={() => onToggleStatus(id, 0)} />
+          <label htmlFor='NotStarted'> Not started</label>
+          <input type='radio' name='Started' onClick={() => onToggleStatus(id, 1)} />
+          <label htmlFor='Started'> Started</label>
+          <input type='radio' name='Completed' onClick={() => onToggleStatus(id, 2)} />
+          <label htmlFor='Completed'> Completed</label> */}
+        </div>
+
+        <label className='todo-label' htmlFor={id}>{name}</label>
       </div>
       <div className='btn-group'>
 

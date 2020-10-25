@@ -1,4 +1,4 @@
-# React notes
+# Component
 
 ```bash
   npx create-react-app <name>

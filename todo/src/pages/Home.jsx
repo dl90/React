@@ -11,14 +11,15 @@ import Button from '../components/Button'
 */
 const FILTER_MAP = {
   All: () => true,
-  Active: task => !task.completed,
-  Completed: task => task.completed
+  NotStarted: task => task.status === 0,
+  Started: task => task.status === 1,
+  Completed: task => task.status === 2
 }
 const FILTER_NAMES = Object.keys(FILTER_MAP)
 const DATA = [
-  // { id: `todo-${nanoid()}`, name: 'Eat', completed: true },
-  // { id: `todo-${nanoid()}`, name: 'Sleep', completed: false },
-  // { id: `todo-${nanoid()}`, name: 'Repeat', completed: false }
+  // { id: `todo-${nanoid()}`, name: 'Eat', status: 0 },
+  // { id: `todo-${nanoid()}`, name: 'Sleep', status: 0 },
+  // { id: `todo-${nanoid()}`, name: 'Repeat', status: 0 }
 ]
 
 export default function Home () {
@@ -37,9 +38,9 @@ export default function Home () {
   */
 
   // updates tasks after toggle
-  const toggleTaskCompleted = (id) => {
+  const toggleTaskStatus = (id, val) => {
     setTasks(tasks.map(task => {
-      if (id === task.id) return { ...task, completed: !task.completed }
+      if (id === task.id) return { ...task, status: parseInt(val) }
       return task
     }))
   }
@@ -64,8 +65,8 @@ export default function Home () {
         key={task.id}
         id={task.id}
         name={task.name}
-        completed={task.completed}
-        onComplete={toggleTaskCompleted}
+        status={task.status}
+        onToggleStatus={toggleTaskStatus}
         onDelete={deleteTask}
         onEdit={editTask}
       />
@@ -85,6 +86,7 @@ export default function Home () {
     setTasks([...tasks, {
       id: `todo-${nanoid()}`,
       name,
+      status: 0,
       completed: false
     }])
   }
