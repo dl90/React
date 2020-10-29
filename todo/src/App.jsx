@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Navbar from './layout/Navbar'
 import Home from './pages/Home'
 import About from './pages/About'
-import Error from './pages/Error'
+import ErrorPage from './pages/ErrorPage'
 import Api from './pages/Api'
 
 export default function App () {
@@ -21,7 +21,7 @@ export default function App () {
           <Route path={LINKS.home} component={Home} exact />
           <Route path={LINKS.about} component={About} />
           <Route path={LINKS.api} component={Api} />
-          <Route component={Error} />
+          <Route component={ErrorPage} />
         </Switch>
       </BrowserRouter>
     </main>

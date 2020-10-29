@@ -4,7 +4,7 @@
   npx create-react-app <name>
 ```
 
-React uses one way data flow (parent component to sub-component)
+React props uses one way data flow (parent component to sub-component)
 
 ## composing components
 

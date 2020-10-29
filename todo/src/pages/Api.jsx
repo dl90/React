@@ -20,7 +20,7 @@ export default function Api () {
   else {
     return (
       <div>
-        <img src={user.picture.medium} />
+        <img src={user.picture.medium} alt={user.name.first} />
         <div>{user.name.first} {user.name.last}</div>
         <div>{user.gender}</div>
         <div>{user.email}</div>
