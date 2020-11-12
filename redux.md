@@ -1,8 +1,6 @@
 # Redux
 
-large number/diverse kinds of state are tracked [ajax, local, UI]
-
-Redux manages global app state, offers one source of truth for state, controls how/when state updates happen
+Redux manages global app state, offers one source of truth for state, controls how/when state updates happen through actions
 
 ## principle
 
@@ -50,7 +48,7 @@ store.getState()
 
 ### action
 
-* JS object with type field (type: 'todoAdd') used to describe an event
+* JS object with type field (type: 'domain/eventName') used to describe an event
 * payload field describes what happened
 
 ```js
@@ -76,7 +74,7 @@ store.dispatch(actionObj)
 
 ### reducers
 
-* pure function, takes in stored state and an action and returns new stored state
+* pure function, takes in a state and an action and returns new state, without modifying the original
 * components become decoupled from data changes
 * reducer composition
   * small/reuseable reducer functions

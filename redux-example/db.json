@@ -1,0 +1,59 @@
+{
+  "logs": [
+    {
+      "id": 1,
+      "message": "Swap the CPU in desktop#5 from AMD Ryzen 5800x",
+      "attention": true,
+      "tech": "Michael Douglas",
+      "date": "2020-10-27T23:48:13.250Z"
+    },
+    {
+      "id": 2,
+      "message": "Add 2x16GB RAM modules to laptop#3",
+      "attention": true,
+      "tech": "Jane Doe",
+      "date": "2020-10-27T23:46:21.703Z"
+    },
+    {
+      "id": 3,
+      "message": "Install Thunderbolt 3 PCIe card on server#6",
+      "attention": false,
+      "tech": "Jonathan Rogan",
+      "date": "2020-10-27T23:50:44.802Z"
+    },
+    {
+      "message": "test",
+      "attention": true,
+      "tech": "test test",
+      "date": "2020-11-11T22:06:41.685Z",
+      "id": 4
+    }
+  ],
+  "techs": [
+    {
+      "id": 1,
+      "firstName": "Jane",
+      "lastName": "Doe"
+    },
+    {
+      "id": 2,
+      "firstName": "Michael",
+      "lastName": "Douglas"
+    },
+    {
+      "id": 3,
+      "firstName": "Jonathan",
+      "lastName": "Rogan"
+    },
+    {
+      "firstName": "John",
+      "lastName": "Doe",
+      "id": 4
+    },
+    {
+      "firstName": "test",
+      "lastName": "test",
+      "id": 7
+    }
+  ]
+}
