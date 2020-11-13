@@ -4,7 +4,7 @@ const Book = require('../model/Book')
 const Author = require('../model/Author')
 const Genre = require('../model/Genre')
 const BookInstance = require('../model/BookInstance')
-dotenv.config()
+dotenv.config({ path: '../.env' })
 
 const mongoose = require('mongoose')
 const mongoDB = process.env.MONGO_URI
@@ -16,14 +16,14 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 const authors = []
 const genres = []
 const books = []
-const bookInstances = []
+const bookinstances = []
 
 function authorCreate (first_name, family_name, d_birth, d_death, cb) {
-  const authorDetail = { first_name: first_name, family_name: family_name }
-  if (d_birth !== false) authorDetail.date_of_birth = d_birth
-  if (d_death !== false) authorDetail.date_of_death = d_death
+  authordetail = { first_name: first_name, family_name: family_name }
+  if (d_birth != false) authordetail.date_of_birth = d_birth
+  if (d_death != false) authordetail.date_of_death = d_death
 
-  const author = new Author(authorDetail)
+  const author = new Author(authordetail)
 
   author.save(function (err) {
     if (err) {
@@ -51,15 +51,15 @@ function genreCreate (name, cb) {
 }
 
 function bookCreate (title, summary, isbn, author, genre, cb) {
-  const bookDetail = {
+  bookdetail = {
     title: title,
     summary: summary,
     author: author,
     isbn: isbn
   }
-  if (genre !== false) bookDetail.genre = genre
+  if (genre != false) bookdetail.genre = genre
 
-  const book = new Book(bookDetail)
+  const book = new Book(bookdetail)
   book.save(function (err) {
     if (err) {
       cb(err, null)
@@ -72,22 +72,22 @@ function bookCreate (title, summary, isbn, author, genre, cb) {
 }
 
 function bookInstanceCreate (book, imprint, due_back, status, cb) {
-  const bookInstanceDetail = {
+  bookinstancedetail = {
     book: book,
     imprint: imprint
   }
-  if (due_back !== false) bookInstanceDetail.due_back = due_back
-  if (status !== false) bookInstanceDetail.status = status
+  if (due_back != false) bookinstancedetail.due_back = due_back
+  if (status != false) bookinstancedetail.status = status
 
-  const bookInstance = new BookInstance(bookInstanceDetail)
-  bookInstance.save(function (err) {
+  const bookinstance = new BookInstance(bookinstancedetail)
+  bookinstance.save(function (err) {
     if (err) {
-      console.log('ERROR CREATING BookInstance: ' + bookInstance)
+      console.log('ERROR CREATING BookInstance: ' + bookinstance)
       cb(err, null)
       return
     }
-    console.log('New BookInstance: ' + bookInstance)
-    bookInstances.push(bookInstance)
+    console.log('New BookInstance: ' + bookinstance)
+    bookinstances.push(bookinstance)
     cb(null, book)
   })
 }
@@ -118,7 +118,9 @@ function createGenreAuthors (cb) {
     function (callback) {
       genreCreate('French Poetry', callback)
     }
-  ], cb)
+  ],
+  // optional callback
+  cb)
 }
 
 function createBooks (cb) {
@@ -144,7 +146,9 @@ function createBooks (cb) {
     function (callback) {
       bookCreate('Test Book 2', 'Summary of test book 2', 'ISBN222222', authors[4], false, callback)
     }
-  ], cb)
+  ],
+  // optional callback
+  cb)
 }
 
 function createBookInstances (cb) {
@@ -182,17 +186,23 @@ function createBookInstances (cb) {
     function (callback) {
       bookInstanceCreate(books[1], 'Imprint XXX3', false, false, callback)
     }
-  ], cb)
+  ],
+  // Optional callback
+  cb)
 }
 
 async.series([
   createGenreAuthors,
   createBooks,
   createBookInstances
-], (err, results) => {
-  err
-    ? console.log('FINAL ERR: ' + err)
-    : console.log('BOOKInstances: ' + bookInstances)
-
+],
+// Optional callback
+function (err, results) {
+  if (err) {
+    console.log('FINAL ERR: ' + err)
+  } else {
+    console.log('BOOKInstances: ' + bookinstances)
+  }
+  // All done, disconnect from database
   mongoose.connection.close()
 })

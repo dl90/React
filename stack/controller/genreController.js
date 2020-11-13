@@ -1,13 +1,43 @@
+const async = require('async')
+const mongoose = require('mongoose')
+
 const Genre = require('../model/Genre')
+const Book = require('../model/Book')
 
 // Display list of all Genre.
-exports.genre_list = function (req, res) {
-  res.send('NOT IMPLEMENTED: Genre list')
+exports.genre_list = function (req, res, next) {
+  Genre.find()
+    .sort([['name', 'ascending']])
+    .exec(function (err, list_genres) {
+      if (err) { return next(err) }
+      res.render('genre_list', { title: 'Genre List', genre_list: list_genres })
+    })
 }
 
 // Display detail page for a specific Genre.
-exports.genre_detail = function (req, res) {
-  res.send('NOT IMPLEMENTED: Genre detail: ' + req.params.id)
+exports.genre_detail = function (req, res, next) {
+  const id = mongoose.Types.ObjectId(req.params.id)
+  async.parallel({
+    genre: function (callback) {
+      Genre.findById(id)
+        .exec(callback)
+    },
+
+    genre_books: function (callback) {
+      Book.find({ 'genre': id })
+        .exec(callback)
+    }
+
+  }, function (err, results) {
+    if (err) { return next(err) }
+    if (results.genre == null) { // No results.
+      const err = new Error('Genre not found')
+      err.status = 404
+      return next(err)
+    }
+    // Successful, so render
+    res.render('genre_detail', { title: 'Genre Detail', genre: results.genre, genre_books: results.genre_books })
+  })
 }
 
 // Display Genre create form on GET.
