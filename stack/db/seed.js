@@ -1,11 +1,12 @@
 const async = require('async')
 const dotenv = require('dotenv')
+
 const Book = require('../model/Book')
 const Author = require('../model/Author')
 const Genre = require('../model/Genre')
 const BookInstance = require('../model/BookInstance')
-dotenv.config({ path: '../.env' })
 
+dotenv.config({ path: '../.env' })
 const mongoose = require('mongoose')
 const mongoDB = process.env.MONGO_URI
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })

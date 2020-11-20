@@ -15,7 +15,12 @@ AuthorSchema
 
 AuthorSchema
   .virtual('lifespan')
-  .get(function () { return (this.date_of_death.getYear() - this.date_of_birth.getYear()).toString() })
+  .get(function () {
+    if (this.date_of_death && this.date_of_birth) {
+      return (this.date_of_death.getYear() - this.date_of_birth.getYear()).toString()
+    }
+    return 'less than 1 year'
+  })
 
 AuthorSchema
   .virtual('url')
