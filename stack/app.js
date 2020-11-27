@@ -2,6 +2,8 @@ const createError = require('http-errors')
 const express = require('express')
 const path = require('path')
 const cookieParser = require('cookie-parser')
+const compression = require('compression')
+const helmet = require('helmet')
 const logger = require('morgan')
 const db = require('./db/mongo').db
 
@@ -19,6 +21,8 @@ app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
+app.use(compression())
+app.use(helmet())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
